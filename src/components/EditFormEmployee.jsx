@@ -62,16 +62,12 @@ export const EditFormEmployee = () => {
           </div>
           <div className="mb-3">
             <label className="form-label">Department</label>
-            <select
+            <input
               name="department"
               onChange={formHandler}
               className="form-select"
               aria-label="Default select example"
-            >
-              <option>Open this select menu</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-            </select>
+            ></input>
           </div>
           <div className="mb-3">
             <label className="form-label">Role</label>

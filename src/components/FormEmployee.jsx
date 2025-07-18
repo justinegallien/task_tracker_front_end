@@ -37,7 +37,7 @@ export const FormEmployee = () => {
   };
 
   const handlerRole = (event) => {
-    newEmployeen.role = event.target.value;
+    newEmployee.role = event.target.value;
   };
 
   return (
@@ -55,15 +55,11 @@ export const FormEmployee = () => {
           </div>
           <div className="mb-3">
             <label className="form-label">Department</label>
-            <select
+            <input
               onChange={handlerDepartment}
               className="form-select"
               aria-label="Default select example"
-            >
-              <option>Open this select menu</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-            </select>
+            ></input>
           </div>
           <div className="mb-3">
             <label className="form-label">Role</label>
