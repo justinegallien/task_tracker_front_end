@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Employee } from "./page/Employee.jsx";
 import { Home } from "./page/Home.jsx";
 import { EditEmployee } from "./page/EditEmployee.jsx";
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { Tasks } from "./page/Tasks.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/employee" element={<Employee />} />
-          <Route path="/editEmployee/:id_employee" element={<EditEmployee />} />
+          <Route path="/editEmployee/:employee_id" element={<EditEmployee />} />
+          <Route path="/task/:employee_id" element={<Tasks />} />
         </Routes>
       </BrowserRouter>
     </>

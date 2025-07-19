@@ -23,7 +23,7 @@ export const EditFormEmployee = () => {
     console.log(employeeEdit);
   };
 
-  const submintHandler = async () => {
+  const submitHandler = async () => {
     event.preventDefault();
 
     const id_employee = params.id_employee;
@@ -50,7 +50,7 @@ export const EditFormEmployee = () => {
       <h1>Edit Employee</h1>
 
       <main className="container ml-2 mr-2 mb-5">
-        <form onSubmit={submintHandler}>
+        <form onSubmit={submitHandler}>
           <div className="mb-3">
             <label className="form-label">Name</label>
             <input
