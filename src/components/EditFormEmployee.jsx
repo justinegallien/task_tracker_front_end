@@ -23,12 +23,30 @@ export const EditFormEmployee = () => {
     console.log(employeeEdit);
   };
 
+  const getEmployeeById = async () => {
+    const { employee_id } = params;
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const endPoint = "employee";
+    const url = `${baseUrl}${endPoint}/${employee_id}`;
+
+    const result = await fetch(url);
+    const data = await result.json();
+    const element = data[0];
+
+    const { name, department, role } = element;
+
+    setEmployeeEdit({
+      name,
+      department,
+      role,
+    });
+  };
+
   const submitHandler = async () => {
     event.preventDefault();
 
-    const id_employee = params.id_employee;
-
-    const url = `${baseUrl}${endPoint}/${id_employee}`;
+    const employee_id = params.employee_id;
+    const url = `${baseUrl}${endPoint}/${employee_id}`;
 
     console.log(url);
 
@@ -44,6 +62,10 @@ export const EditFormEmployee = () => {
 
     navigate("/employee");
   };
+
+  useEffect(() => {
+    getEmployeeById();
+  }, []);
 
   return (
     <>
@@ -74,7 +96,7 @@ export const EditFormEmployee = () => {
             <input
               name="role"
               onChange={formHandler}
-              type="date"
+              type="text"
               className="form-control"
             />
           </div>
