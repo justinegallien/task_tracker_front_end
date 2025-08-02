@@ -31,7 +31,7 @@ export const Menu = ({ auth }) => {
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="/employee">
                   Home
                   <span class="visually-hidden">(current)</span>
                 </a>
@@ -90,6 +90,11 @@ export const Menu = ({ auth }) => {
               </button>
             </form>
           </div>
+        </div>
+        <div className="d-flex">
+          <button onClick={logOut} className="btn btn-primary my-2 my-sm-0">
+            Log Out
+          </button>
         </div>
       </nav>
     </>
