@@ -27,7 +27,7 @@ export const RegisterNewUser = () => {
     setNewUser(data);
   };
 
-  const handleUsername = (event) => {
+  const handleEmail = (event) => {
     newUser.email = event.target.value;
   };
   const handlePassword = (event) => {
@@ -41,7 +41,7 @@ export const RegisterNewUser = () => {
   };
 
   const handleReturn = () => {
-    navigate("/login");
+    navigate("/employee");
   };
   return (
     <>

@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/registernewuser" element={<RegisterNewUser />} />
           <Route path="/" element={<Home auth={setLogIn} userName={name} />} />
-          {isLogIn && <Route path="/employee" element={<Employee />} />}
+          {isLogIn && (<Route path="/employee" element={<Employee />} />)}
           {isLogIn && (
             <Route
               path="/editEmployee/:employee_id"

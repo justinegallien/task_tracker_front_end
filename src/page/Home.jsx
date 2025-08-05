@@ -77,7 +77,7 @@ export const Home = ({ auth }) => {
           </form>
           <button
             className="btn btn-secondary mt-2 w-100 "
-            onClick={() => navigate("/:register")}
+            onClick={() => navigate("/registernewuser")}
           >
             Register
           </button>
