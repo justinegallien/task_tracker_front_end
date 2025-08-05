@@ -39,7 +39,7 @@ export const Home = ({ auth }) => {
       const data = await result.json();
       localStorage.setItem("token", data.token);
       auth(true);
-      navigate("/person");
+      navigate("/employee");
     } else {
       setResultLogIn("Invalid Credentials");
     }
@@ -75,7 +75,12 @@ export const Home = ({ auth }) => {
 
             <button className="btn btn-primary w-100">Log In</button>
           </form>
-          <button className="btn btn-secondary mt-2 w-100">Register</button>
+          <button
+            className="btn btn-secondary mt-2 w-100 "
+            onClick={() => navigate("/:register")}
+          >
+            Register
+          </button>
         </div>
       </div>
     </>
