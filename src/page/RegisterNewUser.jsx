@@ -16,13 +16,12 @@ export const RegisterNewUser = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const url = `${baseUrl}${endpoint}`;
-    const token = localStorage.getItem("token");
+
     const result = await fetch(url, {
       method: "POST",
       body: JSON.stringify(newUser),
       headers: {
         "Content-Type": "application/json",
-        'Authorization': token,
       },
     });
     const data = await result.json();
