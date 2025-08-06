@@ -12,7 +12,12 @@ export const TableEmployees = () => {
 
   const getEmployees = async () => {
     const url = baseUrl + endPoint;
-    const result = await fetch(url);
+    const token = localStorage.getItem("token");
+    const result = await fetch(url, {
+      headers: {
+        Authorization: token,
+      },
+    });
     const data = await result.json();
     setDataEmployee(data);
   };

@@ -41,7 +41,7 @@ export const RegisterNewUser = () => {
   };
 
   const handleReturn = () => {
-    navigate("/employee");
+    navigate("/");
   };
   return (
     <>

@@ -28,8 +28,13 @@ export const EditFormEmployee = () => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const endPoint = "employee";
     const url = `${baseUrl}${endPoint}/${employee_id}`;
+ const token = localStorage.getItem("token");
 
-    const result = await fetch(url);
+    const result = await fetch(url, {
+      headers: {
+        Authorization: token,
+      },
+    });
     const data = await result.json();
     const element = data[0];
 
@@ -47,7 +52,7 @@ export const EditFormEmployee = () => {
 
     const employee_id = params.employee_id;
     const url = `${baseUrl}${endPoint}/${employee_id}`;
-
+const token = localStorage.getItem("token");
     console.log(url);
 
     const result = await fetch(url, {
@@ -55,6 +60,7 @@ export const EditFormEmployee = () => {
       body: JSON.stringify(employeeEdit),
       headers: {
         "Content-Type": "application/json",
+        Authorization: token,
       },
     });
 
