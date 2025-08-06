@@ -15,7 +15,7 @@ export const TableEmployees = () => {
     const token = localStorage.getItem("token");
     const result = await fetch(url, {
       headers: {
-        Authorization: token,
+        'Authorization': token,
       },
     });
     const data = await result.json();

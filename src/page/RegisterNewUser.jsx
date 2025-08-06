@@ -16,11 +16,13 @@ export const RegisterNewUser = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const url = `${baseUrl}${endpoint}`;
+    const token = localStorage.getItem("token");
     const result = await fetch(url, {
       method: "POST",
       body: JSON.stringify(newUser),
       headers: {
         "Content-Type": "application/json",
+        'Authorization': token,
       },
     });
     const data = await result.json();
@@ -91,7 +93,7 @@ export const RegisterNewUser = () => {
           >
             Save Data
           </button>
-          <button className="btn btn-danger" onClick={handleReturn}>
+          <button className="btn btn-success" onClick={handleReturn}>
             Return
           </button>
         </form>

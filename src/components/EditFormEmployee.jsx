@@ -32,7 +32,7 @@ export const EditFormEmployee = () => {
 
     const result = await fetch(url, {
       headers: {
-        Authorization: token,
+        'Authorization': token,
       },
     });
     const data = await result.json();
@@ -60,7 +60,7 @@ const token = localStorage.getItem("token");
       body: JSON.stringify(employeeEdit),
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        'Authorization': token,
       },
     });
 

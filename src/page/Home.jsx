@@ -32,7 +32,7 @@ export const Home = ({ auth }) => {
       body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        'Authorization': token,
       },
     });
 
@@ -77,7 +77,7 @@ export const Home = ({ auth }) => {
             <button className="btn btn-primary w-100">Log In</button>
           </form>
           <button
-            className="btn btn-secondary mt-2 w-100 "
+            className="btn btn-success mt-2 w-100 "
             onClick={() => navigate("/registernewuser")}
           >
             Register
