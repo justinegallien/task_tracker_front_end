@@ -60,7 +60,10 @@ export const TableEmployees = () => {
             <th>Name</th>
             <th>Department</th>
             <th>Role</th>
-            <th>Actions</th>
+            <th>Edit</th>
+
+            <th>Delete</th>
+            <th>Tasks</th>
           </tr>
         </thead>
 
@@ -75,13 +78,15 @@ export const TableEmployees = () => {
                   className="btn btn-info"
                   onClick={() => handleEdit(item.employee_id)}
                 >
-                  Edit
+                  <i className="bi bi-file-text"></i>
                 </button>
+              </td>
+              <td>
                 <button
                   className="btn btn-success"
                   onClick={() => handleDelete(item.employee_id)}
                 >
-                  Delete
+                  <i className="bi bi-trash"></i>
                 </button>
               </td>
 
@@ -89,7 +94,7 @@ export const TableEmployees = () => {
                 <button
                   type="button"
                   className="btn btn-info m-1"
-                  onClick={() => taskHandler(item.getEmployees_id)}
+                  onClick={() => taskHandler(item.employee_id)}
                 >
                   <i className="bi bi-list-check"></i>
                 </button>

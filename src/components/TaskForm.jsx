@@ -46,9 +46,9 @@ export const TaskForm = () => {
       <main className="container ml-2 mr-2 mb-5 mt-5">
         <form onSubmit={submitHandler}>
           <div className="mb-3">
-            <label className="form-label">Role</label>
+            <label className="form-label">Task</label>
             <input
-              name="role"
+              name="task"
               onChange={formHandler}
               type="text"
               className="form-control"

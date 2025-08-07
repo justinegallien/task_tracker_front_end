@@ -3,7 +3,7 @@ import { use } from "react";
 import { useParams } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
-const endPoint = "tasks";
+const endPoint = "task";
 const endPoint2 = "employee";
 
 export const TasksTable = () => {
@@ -28,7 +28,12 @@ export const TasksTable = () => {
   const getEmployee = async () => {
     const { employee_id } = params;
     const url = `${baseUrl}${endPoint2}/${employee_id}`;
-    const result = await fetch(url);
+    const token = localStorage.getItem("token");
+    const result = await fetch(url, {
+      headers: {
+        'Authorization': token,
+      },
+    });
     const data = await result.json();
     console.log(data[0]);
     setEmployee(data[0]);
@@ -36,8 +41,12 @@ export const TasksTable = () => {
 
   const deleteTask = async (id) => {
     const url = `${baseUrl}${endPoint}/${id}`;
+    const token = localStorage.getItem("token");
     const result = await fetch(url, {
       method: "DELETE",
+      headers: {
+        'Authorization': token,
+      },
     });
 
     window.location.reload();
@@ -50,18 +59,19 @@ export const TasksTable = () => {
 
   return (
     <>
+    <h1> {employee.name}</h1>
       <table className="table table-striped">
         <thead>
           <tr>
-            <th>{employee.name}</th>
-            <th>Actions</th>
+            <th>Description</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           {tasks.map((item) => (
             <tr key={item.task_id}>
-              <td>{item.department}</td>
-              <td>{item.role}</td>
+              <td>{item.description}</td>
+              <td>{item.status}</td>
               <td>
                 <button
                   className="btn btn-danger"
