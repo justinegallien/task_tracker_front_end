@@ -36,7 +36,7 @@ function App() {
               element={<EditEmployee />}
             />
           )}
-          {isLogIn && <Route path="/task/:employee_id" element={<Tasks />} />}
+          {isLogIn && <Route path="/tasks/:employee_id" element={<Tasks />} />}
         </Routes>
       </BrowserRouter>
     </>

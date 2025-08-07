@@ -14,11 +14,14 @@ export const FormEmployee = () => {
     event.preventDefault();
 
     const url = baseUrl + endPoint;
+
+    const token = localStorage.getItem("token");
     const result = await fetch(url, {
       method: "POST",
       body: JSON.stringify(newEmployee),
       headers: {
         "Content-Type": "application/json",
+        Authorization: token,
       },
     });
 
@@ -70,7 +73,9 @@ export const FormEmployee = () => {
             />
           </div>
 
-          <button className="btn btn-primary w-100">Save Data</button>
+          <button type="submit" className="btn btn-success w-100">
+            Save Data
+          </button>
         </form>
       </main>
     </>

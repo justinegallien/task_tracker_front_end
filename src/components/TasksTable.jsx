@@ -3,7 +3,7 @@ import { use } from "react";
 import { useParams } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
-const endPoint = "task";
+const endPoint = "tasks";
 const endPoint2 = "employee";
 
 export const TasksTable = () => {
@@ -15,7 +15,12 @@ export const TasksTable = () => {
   const getTasks = async () => {
     const { employee_id } = params;
     const url = `${baseUrl}${endPoint}/${employee_id}`;
-    const result = await fetch(url);
+     const token = localStorage.getItem("token");
+    const result = await fetch(url, {
+      headers: {
+        'Authorization': token,
+      },
+    });
     const data = await result.json();
     setTasks(data);
   };

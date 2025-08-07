@@ -28,14 +28,23 @@ export const TableEmployees = () => {
 
   const handleDelete = async (id) => {
     const url = `${baseUrl}${endPoint}/${id}`;
+    const token = localStorage.getItem("token");
     const result = await fetch(url, {
       method: "DELETE",
+      headers: {
+        'Authorization': token,
+      },
     });
 
     const data = await result.json();
 
     window.location.reload();
   };
+
+ const taskHandler = (id) => {
+   navigate(`/tasks/${id}`);
+ };
+
 
   useEffect(() => {
     getEmployees();
@@ -63,16 +72,26 @@ export const TableEmployees = () => {
               <td> {item.role} </td>
               <td>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-info"
                   onClick={() => handleEdit(item.employee_id)}
                 >
                   Edit
                 </button>
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-success"
                   onClick={() => handleDelete(item.employee_id)}
                 >
                   Delete
+                </button>
+              </td>
+
+              <td>
+                <button
+                  type="button"
+                  className="btn btn-info m-1"
+                  onClick={() => taskHandler(item.getEmployees_id)}
+                >
+                  <i className="bi bi-list-check"></i>
                 </button>
               </td>
             </tr>

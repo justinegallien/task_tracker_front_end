@@ -28,11 +28,11 @@ export const EditFormEmployee = () => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const endPoint = "employee";
     const url = `${baseUrl}${endPoint}/${employee_id}`;
- const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
     const result = await fetch(url, {
       headers: {
-        'Authorization': token,
+        Authorization: token,
       },
     });
     const data = await result.json();
@@ -52,7 +52,7 @@ export const EditFormEmployee = () => {
 
     const employee_id = params.employee_id;
     const url = `${baseUrl}${endPoint}/${employee_id}`;
-const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     console.log(url);
 
     const result = await fetch(url, {
@@ -60,7 +60,7 @@ const token = localStorage.getItem("token");
       body: JSON.stringify(employeeEdit),
       headers: {
         "Content-Type": "application/json",
-        'Authorization': token,
+        Authorization: token,
       },
     });
 
@@ -107,7 +107,9 @@ const token = localStorage.getItem("token");
             />
           </div>
 
-          <button className="btn btn-primary w-100">Save Data</button>
+          <button type="submit" className="btn btn-info w-100">
+            Save Data
+          </button>
         </form>
       </main>
     </>

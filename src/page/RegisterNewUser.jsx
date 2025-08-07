@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
-const endpoint = "register";
+const endpoint = "user";
 
 export const RegisterNewUser = () => {
   const navigate = useNavigate();
@@ -25,7 +25,10 @@ export const RegisterNewUser = () => {
       },
     });
     const data = await result.json();
-    setNewUser(data);
+
+    if (result.ok) {
+      handleReturn();
+    }
   };
 
   const handleEmail = (event) => {
@@ -85,11 +88,7 @@ export const RegisterNewUser = () => {
           </div>
 
           <br />
-          <button
-            onClick={handleReturn}
-            type="submit"
-            className="btn btn-primary"
-          >
+          <button type="submit" className="btn btn-primary">
             Save Data
           </button>
           <button className="btn btn-success" onClick={handleReturn}>

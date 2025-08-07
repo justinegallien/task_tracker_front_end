@@ -37,8 +37,8 @@ export const Menu = ({ auth }) => {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/tasks">
-                  Tasks
+                <a class="nav-link" href="/">
+                  
                 </a>
               </li>
 

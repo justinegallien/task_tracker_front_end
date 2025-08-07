@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
-const endPoint = "task";
+const endPoint = "tasks";
 
 export const TaskForm = () => {
   const params = useParams();
@@ -28,7 +28,7 @@ export const TaskForm = () => {
       body: JSON.stringify(task),
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        'Authorization': token,
       },
     });
 
@@ -55,9 +55,9 @@ export const TaskForm = () => {
             />
           </div>
 
-          <button className="btn btn-primary w-100">Save</button>
+          <button className="btn btn-info w-100">Save</button>
         </form>
-        <button className="btn btn-warning mt-3 w-100" onClick={returnHandler}>
+        <button className="btn btn-success mt-3 w-100" onClick={returnHandler}>
           Return
         </button>
       </main>
