@@ -39,6 +39,11 @@ export const TasksTable = () => {
     setEmployee(data[0]);
   };
 
+  const editTask = (id) => {
+    navigate(`/editEmployee/${id}`);
+  };
+
+
   const deleteTask = async (id) => {
     const url = `${baseUrl}${endPoint}/${id}`;
     const token = localStorage.getItem("token");
@@ -59,12 +64,13 @@ export const TasksTable = () => {
 
   return (
     <>
-    <h1> {employee.name}</h1>
+      <h1> {employee.name}</h1>
       <table className="table table-striped">
         <thead>
           <tr>
             <th>Description</th>
             <th>Status</th>
+            <th>Delete Task</th>
           </tr>
         </thead>
         <tbody>
@@ -72,12 +78,13 @@ export const TasksTable = () => {
             <tr key={item.task_id}>
               <td>{item.description}</td>
               <td>{item.status}</td>
+              
               <td>
                 <button
                   className="btn btn-danger"
                   onClick={() => deleteTask(item.task_id)}
                 >
-                  <i class="bi bi-file-earmark-minus"></i>
+                  <i class="bi bi-trash"></i>
                 </button>
               </td>
             </tr>

@@ -49,7 +49,7 @@ export const Home = ({ auth }) => {
     <>
       <div className="container vh-100 d-flex align-items-center justify-content-center">
         <div className="card p-4" style={{ maxWidth: "80%", width: "100%" }}>
-          <h3 className="text-center mb-2">Log In</h3>
+          <h3 className="text-center mb-2">Log In To TaskTracker!</h3>
           <form onSubmit={submitHandler}>
             <div className="mb-3">
               <label className="form-label">Email</label>

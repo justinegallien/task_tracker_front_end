@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
-const endPoint = "tasks";
+const endPoint = "task";
 
 export const TaskForm = () => {
   const params = useParams();
@@ -10,7 +10,8 @@ export const TaskForm = () => {
   const { employee_id } = params;
   const [task, setTask] = useState({
     employee_id: employee_id,
-    role: "",
+    status: "",
+    description: "",
   });
 
   const formHandler = (event) => {
@@ -28,7 +29,7 @@ export const TaskForm = () => {
       body: JSON.stringify(task),
       headers: {
         "Content-Type": "application/json",
-        'Authorization': token,
+        Authorization: token,
       },
     });
 
@@ -46,9 +47,18 @@ export const TaskForm = () => {
       <main className="container ml-2 mr-2 mb-5 mt-5">
         <form onSubmit={submitHandler}>
           <div className="mb-3">
-            <label className="form-label">Task</label>
+            <label className="form-label">Description</label>
             <input
-              name="task"
+              name="description"
+              onChange={formHandler}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Status</label>
+            <input
+              name="status"
               onChange={formHandler}
               type="text"
               className="form-control"
